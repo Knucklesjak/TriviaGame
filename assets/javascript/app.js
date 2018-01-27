@@ -2,6 +2,7 @@
 $(document).ready(function() {
   
 // Create clock countdown timer
+// My clock will not play. I want it to run when I click the "start" button but it's not happening
   var index = 0;
   var countdownTimer = {
     time : 30,
@@ -34,7 +35,7 @@ $(document).ready(function() {
         }
       }
     }
-  // };
+  };
 
   // Set variables for questions and answers
 
@@ -48,8 +49,8 @@ $(document).ready(function() {
         "B. Boombox Toting Philospher Extrodanaire", 
         "C. Bond Super Villian", 
         "D. None of the Above",
-    flags : [false, true, false, false],
-    answer : "B. Boombox Toting Philospher Extrodanaire"
+    flags[false, true, false, false],
+    answer: "B. Boombox Toting Philospher Extrodanaire"
 };
 
   var q2 = {
@@ -115,7 +116,7 @@ $(document).ready(function() {
         "C. What In Tarnation Are You Talking About?", 
         "D. Depends on Weight of Envelope",
     flags : [true, false, false, false],
-    answer : "A. Boombox Toting Philospher Extrodanaire"
+    answer : "A. Hell No"
 };
 
   var q8 = {
@@ -141,7 +142,7 @@ $(document).ready(function() {
 };
 
   var q10 = {
-  question : "What is Coding Hard?",
+  question : "Why is Coding Hard?",
   possibleAnswers : [
         "A. My Code Won't Work And I Don't Know Why!!!!",
         "B. I'm Not Very Smart", 
@@ -150,7 +151,9 @@ $(document).ready(function() {
     flags : [false, false, false, true],
     answer : "D. All of the Above"
 };
-}
+
+
+// Setting array, functions and conditions for questions & answers
 
   var questionArray = [q1, q2, q3, q4, q5, q6, q7, q8, q9, q10];
 
@@ -184,7 +187,7 @@ $(document).ready(function() {
   function getAnswer() {
 
 //  nextQuestion();
-    $('.answerchoice').on('click', function() {
+    $('.answerChoice').on('click', function() {
       console.log('alert', index);
       index++;
       console.log('click', index);
@@ -216,8 +219,10 @@ $(document).ready(function() {
     countdownTimer.stop();
     $('.timer').empty();
 
+    $("#startButton").click(countdownTimer.start);
+
     setup();
-    $('.answerchoice').on('click', function() {
+    $('.answerChoice').on('click', function() {
     console.log($(this));
     if(this.id == 'buttonA') {
       var answerChosen = 'A';
